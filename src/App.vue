@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container-fluid">
+        <h1>App</h1>
+        <my-notes v-for='note in notes' v-bind:key="note" v-bind:oneNote="note"></my-notes>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MyNotes from "./MyNotes"
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    data() {
+        return {
+            notes: [
+                {title: "Почистить зубы", message: "One"},
+                {title: "Покушать", message: "Two"},
+                {title: "Сходить на работу", message: "Three"}
+            ]
+        }
+    },
+    components: {
+        MyNotes
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
